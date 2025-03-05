@@ -1,7 +1,9 @@
 <?php
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Check if this is a POST request
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Sanitize inputs
   $name = htmlspecialchars($_POST['name']);
   $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -9,28 +11,36 @@
 
   // Validate inputs
   if (empty($name) || empty($email) || empty($message)) {
-    die("All fields are required.");
+    echo "Tous les champs sont obligatoires.";
+    exit;
   }
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Invalid email format.");
-  }
-
-  // Send email (configure your SMTP settings)
-  $to = "emmanuelle.mellinand-richier@laplateforme.io";
-  $subject = "New Message from $name";
-  $headers = "From: $email";
   
-  if (mail($to, $subject, $message, $headers)) {
-    echo "Message sent successfully!";
-  } else {
-    echo "Failed to send message.";
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Format d'email invalide.";
+    exit;
   }
 
-  if (mail($to, $subject, $message, $headers)) {
-    echo "Message sent successfully!";
+  // Send email
+  $to = "emmanuelle.mellinand-richier@laplateforme.io";
+  $subject = "Nouveau message de $name";
+  $email_content = "Nom: $name\n";
+  $email_content .= "Email: $email\n\n";
+  $email_content .= "Message:\n$message";
+  
+  $headers = "From: $email\r\n";
+  $headers .= "Reply-To: $email\r\n";
+  
+  // Send and check success
+  if (mail($to, $subject, $email_content, $headers)) {
+    echo "Message envoyé avec succès!";
   } else {
-    echo "Failed to send message. Check mail server settings.";
+    echo "Échec de l'envoi du message. Vérifiez les paramètres du serveur de messagerie.";
+    
+    // Log error for debugging
+    error_log("Mail sending failed for $email with subject: $subject");
   }
-
+} else {
+  // Not a POST request
+  echo "Méthode non autorisée.";
 }
 ?>

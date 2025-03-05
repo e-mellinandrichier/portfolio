@@ -121,21 +121,48 @@
 </body>
 <script>new CircleType(document.getElementById('circletext'));</script>
 <script>document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();  // Empêche le rechargement de la page
-    console.log("Form submitted!");  // Vérifie que le bouton fonctionne
-
+    e.preventDefault();  // Prevent page reload
+    
+    // Create a form submission status element if it doesn't exist
+    let responseElement = document.getElementById('responseMessage');
+    if (!responseElement) {
+        responseElement = document.createElement('div');
+        responseElement.id = 'responseMessage';
+        this.after(responseElement);
+    }
+    
+    // Show loading message
+    responseElement.innerHTML = 'Envoi en cours...';
+    responseElement.style.color = '#333';
+    
     const formData = new FormData(this);
 
-    fetch('submit_form.php', {  // Vérifie que ce fichier existe
+    fetch('submit_form.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        console.log("Server response:", data);  // Affiche la réponse du serveur
-        document.getElementById('responseMessage').innerHTML = data;
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
     })
-    .catch(error => console.error('Error:', error));
+    .then(data => {
+        console.log("Server response:", data);
+        responseElement.innerHTML = data;
+        responseElement.style.color = 'green';
+        
+        // Reset form on success
+        if (data.includes('successfully')) {
+            this.reset();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        responseElement.innerHTML = 'Erreur lors de l\'envoi. Veuillez réessayer.';
+        responseElement.style.color = 'red';
     });
+});
+
 </script>
 </html>
