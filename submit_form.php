@@ -1,5 +1,7 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Sanitize inputs
   $name = htmlspecialchars($_POST['name']);
   $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -14,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Send email (configure your SMTP settings)
-  $to = "your@email.com";
+  $to = "emmanuelle.mellinand-richier@laplateforme.io";
   $subject = "New Message from $name";
   $headers = "From: $email";
   
@@ -23,5 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "Failed to send message.";
   }
+
+  if (mail($to, $subject, $message, $headers)) {
+    echo "Message sent successfully!";
+  } else {
+    echo "Failed to send message. Check mail server settings.";
+  }
+
 }
 ?>

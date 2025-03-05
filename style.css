@@ -126,10 +126,14 @@ header {
 }
 
 .exp p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 1.5em;
     line-height: 1.8;
     flex: 1;
+}
+
+.pink {
+    color: var(--pink);
 }
 
 .exp img {
@@ -166,6 +170,11 @@ header {
 #four {
     grid-column: 2 / 2;
     grid-row: 2;
+}
+
+#five {
+    grid-column: 1 / 2;
+    grid-row: 3;
 }
 
 .project {
@@ -232,7 +241,111 @@ header {
     z-index: 1;
   }
 
-/* Responsive adjustments */
+footer {
+    background-color: #F4ACB7;
+    color: #202124;
+    margin: -8px;
+    margin-top: 40%;
+}
+ 
+#footer-content {
+    text-align: center;
+    padding: 5%;
+}
+
+.fa-github {
+    font-size: 3em;
+    text-decoration: none;
+    color: #202124;
+    margin: 2%;
+}
+
+.fa-linkedin {
+    font-size: 3em;
+    text-decoration: none;
+    color: #202124;
+    margin: 2%;
+}
+
+div {
+    scroll-margin-top: 150px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; 
+}
+  
+.project-page-title {
+    font-size: 5em;
+    text-align: center;
+  }
+  
+  .date {
+    font-size: 1.5em;
+    color: #F4ACB7;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+  }
+  
+  .left {
+    width: 45%;
+  }
+  
+  .right {
+    width: 45%;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .carousel {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+  
+
+
+  #back-button {
+    background-color: #F4ACB7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  button:hover {
+    background-color: #000
+  }
+
+  .left a {
+    color: #F4ACB7;
+  }
 @media (min-width: 768px) {
     .header-content {
         grid-template-columns: auto 1fr;

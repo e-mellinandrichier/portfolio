@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Danfo&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/73ea2af838.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Danfo&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/peterhry/CircleType@2.3.1/dist/circletype.min.js"></script>
@@ -24,10 +25,9 @@
         </div>
     </header>
     <div id="navbar">
-        <a href="">à propos de moi</a>
-        <a href="">projets</a>
-        <a href="">skills</a>
-        <a href="">contact</a>
+        <a href="#aboutme">à propos de moi</a>
+        <a href="#projects">projets</a>
+        <a href="#contact-div">contact</a>
     </div>
     <div id="aboutme">
         <h2>à propos de moi</h2>
@@ -58,30 +58,41 @@
         </div>
     </div>
     <div id="projects">
-        <div class="project" id="one">
-            <h3>Tic Tac Toe</h3>
-            <h4>Octobre 2024 - La Plateforme_</h4>
-            <p>Dans le cadre de ma première année à La Plateforme_, nous avons dû réaliser un travail de groupe où nous avons codé un morpion fonctionnel. 
-                Ce projet m'a permis de consolider mes bases en python et enrichir ma logique algorithmique.
-            </p>
+        <div class="project" id="one" href="projet1.html">
+            <a href="projet1.html">
+                <h3>Tic Tac Toe</h3>
+                <h4>Octobre 2024 - La Plateforme_</h4>
+                <p>Dans le cadre de ma première année à La Plateforme_, nous avons dû réaliser un travail de groupe où nous avons codé un morpion fonctionnel. 
+                    Ce projet m'a permis de consolider mes bases en python et enrichir ma logique algorithmique.
+                </p>
+            </a>
         </div>
         <div class="project" id="two">
-            <h3>Cyberclosette</h3>
-            <h4>Décembre 2022 - Le Wagon</h4>
-            <p>Pour mon projet de fin d'année de mon bootcamp du Wagon, nous avons réalisé une app mobile permettant aux utilisateurs des tenues
-                adaptées à la météo. Plusieurs fonctionnalités étaient disponibles, comme un onglet favoris, 
-            </p>
+            <a href="projet2.html">
+                <h3>Cyberclosette</h3>
+                <h4>Décembre 2022 - Le Wagon</h4>
+                <p>Pour mon projet de fin d'année du Wagon, nous avons réalisé une app mobile (RubyOnRails) inspirée du vestiaire virtuel de Clueless. 
+                </p>
+            </a>
         </div>
         <div class="project" id="three">
-            <h3>Pokémon</h3>
-            <h4>Février 2024 - La Plateforme_</h4>
-            <p> Par groupe de 3, nous avons conçu un jeu entièrement codé en python, à l'aide de Pygame, qui reprend le système de combat des jeux Pokémon.
-            </p>
+            <a href="projet3.html">
+                <h3>Pokémon</h3>
+                <h4>Février 2024 - La Plateforme_</h4>
+                <p> Par groupe de 3, nous avons conçu un jeu entièrement codé en python, à l'aide de Pygame, qui reprend le système de combat des jeux Pokémon.
+                </p>
+            </a>
         </div>
         <div class="project" id="four">
             <h3>Le pendu</h3>
             <h4>Janvier 2024 - La Plateforme_</h4>
             <p>Dans le cadre de ma spécialité développement logiciel, nous avons codé en python un jeu de pendu avec un historique des scores des parties.
+            </p>
+        </div>
+        <div class="project" id="five">
+            <h3>Calculatrice</h3>
+            <h4>Janvier 2024 - La Plateforme_</h4>
+            <p>Réalisation d'une calculatrice capable de faire des calculs avec plusieurs nombres et opérateurs.
             </p>
         </div>
         <h2 id="projects-title">Projets</h2>
@@ -101,22 +112,30 @@
         </form>
         <h2 id="contact-title"> Contact</h2>
     </div>
-      <div id="responseMessage"></div>
+    <footer>
+        <div id="footer-content">
+            <a href="https://github.com/e-mellinandrichier" class="fa-brands fa-github" target="_blank"></a>
+            <a href="https://www.linkedin.com/in/emmanuelle-mellinand-richier-1ba303257/" class="fa-brands fa-linkedin" target="_blank"></a>
+        </div>
+    </footer>
 </body>
-<script>new CircleType(document.getElementById('circletext'));
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(this);
+<script>new CircleType(document.getElementById('circletext'));</script>
+<script>document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();  // Empêche le rechargement de la page
+    console.log("Form submitted!");  // Vérifie que le bouton fonctionne
 
-      fetch('submit_form.php', {
+    const formData = new FormData(this);
+
+    fetch('submit_form.php', {  // Vérifie que ce fichier existe
         method: 'POST',
         body: formData
-      })
-      .then(response => response.text())
-      .then(data => {
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Server response:", data);  // Affiche la réponse du serveur
         document.getElementById('responseMessage').innerHTML = data;
-      })
-      .catch(error => console.error('Error:', error));
+    })
+    .catch(error => console.error('Error:', error));
     });
 </script>
 </html>
